@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="bootstrap.min.css"/>
+</head>
+<body>
+	<main>
+		<section class="form-control text-center">
+			<label for="your_text" class="form-label">Enter Your Text:</label>
+			<input type="text" class="input-group-text mb-2" id="you_text" name="your_text" style="margin-left: 43%;"/>
+			
+			<button type="submit" class="btn btn-lg btn-outline-primary rounded rounded-3" id="click_btn">!Click!</button>
+		</section>
+	</main>
+</body>
+<script src="jquery-3.6.2.min.js"></script>
+<script>
+	$(document).ready(function (){
+		$("#click_btn").click(function(){
+			let convert = $("#your_text").val();
+
+			const utterance = new SpeechSynthesisUtterance(convert);
+			utterance.pitch = 2;
+
+			window.speechSynthesis.speak(utterance);
+		});
+	});
+</script>
+</html>
