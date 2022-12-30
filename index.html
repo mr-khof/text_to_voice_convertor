@@ -16,14 +16,21 @@
 </body>
 <script src="jquery-3.6.2.min.js"></script>
 <script>
-	$(document).ready(function (){
-		$("#click_btn").click(function(){
+	function voice(value, pitch)
+	{
+		const string = value;
+		const utterance = new SpeechSynthesisUtterance(string);
+		
+		utterance.pitch = pitch;
+		
+		return window.speechSynthesis.speak(utterance);
+	}
+	$(document).ready(function ()
+	{
+		$("#click_btn").click(function()
+		{
 			let convert = $("#your_text").val();
-
-			const utterance = new SpeechSynthesisUtterance(convert);
-			utterance.pitch = 2;
-
-			window.speechSynthesis.speak(utterance);
+			voice(convert, 2);
 		});
 	});
 </script>
