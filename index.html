@@ -18,8 +18,7 @@
 <script>
 	function voice(value, pitch)
 	{
-		const string = value;
-		const utterance = new SpeechSynthesisUtterance(string);
+		const utterance = new SpeechSynthesisUtterance(value);
 		
 		utterance.pitch = pitch;
 		
